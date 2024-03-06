@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?><database>
+    <element db_object_id="fc03e04547700210f3af14bf016d43f0" label="Patient Record" max_length="40" name="x_1281405_hospital_patient_record" type="collection">
+        <element attributes="encode_utf8=false" label="Closed By" max_length="32" name="closed_by" read_only="true" reference="sys_user" type="reference"/>
+        <element attributes="edge_encryption_enabled=true" label="Date of Join" max_length="40" name="date_of_join" type="glide_date"/>
+        <element attributes="edge_encryption_enabled=true" label="Name" mandatory="true" max_length="100" name="name" type="string"/>
+        <element attributes="edge_encryption_enabled=true" default="javascript:global.getNextObjNumberPadded();" label="Number" max_length="40" name="number" type="string"/>
+        <element attributes="edge_encryption_enabled=true" choice="1" default="1" label="State" max_length="40" name="state" type="string">
+            <choice>
+                <element inactive_on_update="false" label="New" sequence="0" value="1"/>
+                <element inactive_on_update="false" label="In Progress" sequence="1" value="2"/>
+                <element inactive_on_update="false" label="Complete" sequence="2" value="3"/>
+            </choice>
+        </element>
+        <index name="index">
+            <element name="closed_by"/>
+        </index>
+    </element>
+</database>
